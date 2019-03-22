@@ -4,6 +4,14 @@
     <h1>My Cart</h1>
   </header>
 
+  <% if enhanced_cart.length === 0 %>
+  <div class="order-summary jumbotron">
+    <h2>Your Cart is Empty</h2>
+    <p>Please add an item to the cart if you want to checkout<p>
+  </div>
+    <div class="btn btn-outline-primary"><%= link_to 'Jungle', root_path %></div>
+    <% else %>
+
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -48,5 +56,7 @@
       <% end %>
     </div>
   </div>
+
+    <% end %>
 
 </section>
