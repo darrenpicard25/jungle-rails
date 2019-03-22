@@ -1,0 +1,18 @@
+
+<% line_item.each do |item| %>
+<tr>
+  <td>
+      <img src=<%=item.product.image %> width="100px"/>
+  </td>
+  <td>
+    <h4><%=item.product.name %></h4>
+    <p><%=item.product.description %></p>
+  </td>
+  <td>
+    <h4><%= item.quantity%></h4>
+  </td>
+  <td>
+    <h4><%= item.product.price%></h4>
+  </td>
+  <% end %>
+</tr>
