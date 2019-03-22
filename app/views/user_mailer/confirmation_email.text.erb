@@ -1,9 +1,21 @@
-Welcome to example.com, <%= @user.name %>
+Thank you for placing an order on Jungle
 ===============================================
 
-You have successfully signed up to example.com,
-your username is: <%= @user.email %>.
+Order #<%= @order.id %>
 
-To login to the site, just follow this link: <%= @url %>.
+What you Ordered:
+------------------------
+<% @order.line_items.each do |item| %>
 
-Thanks for joining and have a great day!
+<%=item.product.name %>
+
+<%=item.product.description %>
+
+Quantity : <%= item.quantity%>
+Price : <%= item.product.price%>
+-----------------------------------------
+  <% end %>
+
+Total: <%= @order.total %>
+
+Thank you for your order!

@@ -6,42 +6,24 @@
   </head>
 <section class="orders-show">
 
-  <header class="page-header">
+  <header>
     <h1>Order #<%= @order.id %></h1>
   </header>
-   <h2><%= @order.email %></h2>
 
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th colspan="2">Product</th>
-          <th>Quantity</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @order.line_items.each do |item| %>
-          <tr>
-            <td>
-              <h4><%=item.product.name %></h4>
-              <p><%=item.product.description %></p>
-            </td>
-            <td>
-              <h4><%= item.quantity%></h4>
-            </td>
-            <td>
-              <h4><%= item.product.price%></h4>
-            </td>
-            <% end %>
-          </tr>
+  <h2>What you Ordered: </h2>
+  <hr>
+  <% @order.line_items.each do |item| %>
 
-        <td colspan="4"><h1>Total: <%= @order.total %></h1></td>
-      </tbody>
-    </table>
+    <h4><%=item.product.name %></h4>
+    <p><%=item.product.description %></p>
+    <h4>Quantity: <%= item.quantity%></h4>
+    <h4>Price: <%= item.product.price%></h4>
+    <hr>
+  <% end %>
 
-  <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
-  </div>
+<h2>Total: <%= @order.total %></h2>
+
+    <h3>Thank you for your order!</h3>
 
 
 </section>
