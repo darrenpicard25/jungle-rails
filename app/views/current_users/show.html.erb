@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @current_user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @current_user.email %>
+</p>
+
+<p>
+  <strong>Login:</strong>
+  <%= @current_user.login %>
+</p>
+
+<%= link_to 'Edit', edit_current_user_path(@current_user) %> |
+<%= link_to 'Back', current_users_path %>
