@@ -22,31 +22,47 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <dt>Rating</dt>
+          <dd><strong><%= @avg_rating.round 1 %> / 5</strong> with <strong><%= @count %></strong> reviews</dd>
         </dl>
         <hr/>
       </div>
+      <div>
       <% if current_user != nil %>
-      <%= form_for :reviews, url: "/products/#{@product.id}/reviews" do |f| %>
-
-          Make review: <%= f.text_field :description %>
-          Rating: <%= f.select :rating, [[1,1],[2,2],[3,3],[4,4],[5,5]] %>
-          <%= f.submit "Submit" , :class => "btn btn-primary"%>
+      <%= form_for :reviews, url: "/products/#{@product.id}/reviews", :class => "form-inline" do |f| %>
+            <%=f.label :description, "Make Review" %>
+            <%= f.text_field :description %>
+            <%= f.label :rating, "Rating" %>
+            <%= f.select :rating, [[1,1],[2,2],[3,3],[4,4],[5,5]] %>
+            <%= f.submit "Submit" , :class => "btn btn-primary"%>
         <% end %>
         <% end %>
         <br><hr>
+      </div>
+
+        <table class= "table table-striped">
+          <thead class="thead-dark" style="background-color: grey ">
+            <tr>
+              <th>Review</th>
+              <th>Rating</th>
+              <% if current_user %>
+              <th>Action</th>
+              <% end %>
+            </tr>
+          </thead>
 
         <% @product.reviews.reverse.each do |review| %>
-        <div class="d-inline-block">
-          <span class="">Review: <%= review.description %></span>
-          <span class="">Rating: <%= review.rating %></span>
-        <% if current_user && current_user.id === review.user_id %>
-        <%= link_to "delete", product_review_path(product_id: @product.id,id: review.id), :method => :delete, :class =>"btn btn-danger" %>
+        <tr>
+          <td ><%= review.description %></td>
+          <td><%=review.rating %> / 5</td>
+          <% if current_user && current_user.id === review.user_id %>
+          <td><%= link_to "delete", product_review_path(product_id: @product.id,id: review.id), :method => :delete, :class =>"btn btn-danger" %>
+              <% end %></td>
+        </tr>
         <% end %>
-        <hr/>
-        <% end %>
-        </div>
+      </table>
 
-    </div>
+
   </article>
 
 </section>
