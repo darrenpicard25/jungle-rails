@@ -23,9 +23,30 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+        <hr/>
       </div>
-    </div>
+      <% if current_user != nil %>
+      <%= form_for :reviews, url: "/products/#{@product.id}/reviews" do |f| %>
 
+          Make review: <%= f.text_field :description %>
+          Rating: <%= f.select :rating, [[1,1],[2,2],[3,3],[4,4],[5,5]] %>
+          <%= f.submit "Submit" , :class => "btn btn-primary"%>
+        <% end %>
+        <% end %>
+        <br><hr>
+
+        <% @product.reviews.reverse.each do |review| %>
+        <div class="d-inline-block">
+          <span class="">Review: <%= review.description %></span>
+          <span class="">Rating: <%= review.rating %></span>
+        <% if current_user && current_user.id === review.user_id %>
+        <%= link_to "delete", product_review_path(product_id: @product.id,id: review.id), :method => :delete, :class =>"btn btn-danger" %>
+        <% end %>
+        <hr/>
+        <% end %>
+        </div>
+
+    </div>
   </article>
 
 </section>
