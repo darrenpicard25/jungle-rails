@@ -1,6 +1,6 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 4.2
 
 
 ## Setup
@@ -13,6 +13,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 6. Create .env file based on .env.example
 7. Sign up for a Stripe account
 8. Put Stripe (test) keys into appropriate .env vars
+9. Set up username and password of gmail account to be used in responses .env file following .env.example
 9. Run `bin/rails s -b 0.0.0.0` to start the server
 
 ## Stripe Testing
@@ -26,3 +27,9 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+
+
+
+
+
