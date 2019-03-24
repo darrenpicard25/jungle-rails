@@ -16,6 +16,12 @@ A mini e-commerce application built with Rails 4.2
 9. Set up username and password of gmail account to be used in responses .env file following .env.example
 9. Run `bin/rails s -b 0.0.0.0` to start the server
 
+## Quick Look
+!["Main Page"](https://github.com/darrenpicard25/jungle-rails/blob/master/images/view_pictures/main_page.gif?raw=true)
+!["Registering"](https://github.com/darrenpicard25/jungle-rails/blob/master/images/view_pictures/registering.gif?raw=true)
+!["Product Page"](https://github.com/darrenpicard25/jungle-rails/blob/master/images/view_pictures/product_show.png?raw=true)
+!["Cart Page"](https://github.com/darrenpicard25/jungle-rails/blob/master/images/view_pictures/cart_show.png?raw=true)
+
 ## Stripe Testing
 
 Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
