@@ -23,7 +23,11 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
           <dt>Rating</dt>
+          <% if @avg_rating %>
           <dd><strong><%= @avg_rating.round 1 %> / 5</strong> with <strong><%= @count %></strong> reviews</dd>
+          <% else %>
+          <dd>No Ratings</dd>
+          <% end %>
         </dl>
         <hr/>
       </div>
@@ -39,10 +43,11 @@
         <% end %>
         <br><hr>
       </div>
-
+      <br><br>
         <table class= "table table-striped">
           <thead class="thead-dark" style="background-color: grey ">
             <tr>
+              <th>User</th>
               <th>Review</th>
               <th>Rating</th>
               <% if current_user %>
@@ -53,6 +58,7 @@
 
         <% @product.reviews.reverse.each do |review| %>
         <tr>
+          <td><%= review.user ? review.user.firstname : "Anomous" %></td>
           <td ><%= review.description %></td>
           <td><%=review.rating %> / 5</td>
           <% if current_user && current_user.id === review.user_id %>

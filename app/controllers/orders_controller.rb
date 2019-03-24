@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
   end
 
   def perform_stripe_charge
-    description =!current_user.nil? ? "#{current_user.name}'s Jungle Order" : "Khurram Virani's Jungle Order"
+    description =!current_user.nil? ? "#{current_user.firstname}'s Jungle Order" : "Khurram Virani's Jungle Order"
 
     Stripe::Charge.create(
       source:      params[:stripeToken],

@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
     @order = orderinfo
     @user = user
     @url  = 'http://example.com'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    mail(to: @user.email, subject: "Order \##{@order.id} from Jungle")
   end
 
 end

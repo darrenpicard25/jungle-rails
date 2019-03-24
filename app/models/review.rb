@@ -1,5 +1,6 @@
 class Review < ActiveRecord::Base
-  belongs_to :users
+  belongs_to :user
+  belongs_to :product
 
   validates :rating, :description, :user_id, :product_id, presence: true
   validates :rating, numericality: {only_integer: true}
